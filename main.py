@@ -1,12 +1,18 @@
-from faker import Faker
-import pandas as pd
+from flask import Flask, render_template, request
 
-fake = Faker()
+app = Flask(__name__)
 
-data = [{"No":i+1, "Name" : fake.name()} for i in range(100)]
+@app.route('/')
+def hello():
+    return render_template('index.html')
+
+@app.route('/generate', methods=['POST'])
+def generate_fake_data():
+    get_numb_rows = request.form.get('numRows')
+    get_fields = request.form.getlist('fields')
+    
+    return f"Jumlah Data : {get_numb_rows}, {get_fields}"
 
 
-df = pd.DataFrame(data)
-filename = 'test.csv'
-df.to_csv(filename, index=False, encoding="utf-8")
-
+if __name__ == '__main__':
+    app.run(debug=True, port=9078)
