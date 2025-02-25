@@ -50,7 +50,7 @@
             {% if fix_file %}
             <div class="alert alert-success mt-3">
                 <strong>Hasil:</strong> 
-                <a href="{{ fix_file }}" target="_blank">{{ fix_file }}</a>
+                <a href="{{ url_for('static', filename=fix_file) }}" target="_blank">{{ fix_file }}</a>
             </div>
             {% endif %}
         </form>
