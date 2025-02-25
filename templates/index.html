@@ -29,7 +29,7 @@
         <form action="/generate" method="POST" class="form-container">
             <div class="mb-3 text-center">
                 <label class="form-label">Jumlah Data:</label>
-                <input type="number" name="numRows" class="form-control" value="5" min="1" max="10000">
+                <input type="number" name="numRows" class="form-control" min="1" max="10000000">
             </div>
             
             <h3 class="text-center">Pilih Jenis Data:</h3>
@@ -46,6 +46,13 @@
             <div class="text-center mt-3">
                 <button type="submit" class="btn btn-primary">Generate</button>
             </div>
+
+            {% if fix_file %}
+            <div class="alert alert-success mt-3">
+                <strong>Hasil:</strong> 
+                <a href="{{ fix_file }}" target="_blank">{{ fix_file }}</a>
+            </div>
+            {% endif %}
         </form>
     </div>
     
