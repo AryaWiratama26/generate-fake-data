@@ -26,10 +26,16 @@ def generate_data(data, long):
             row["Text"] = fake.text()
         if "url" in data:
             row["URL"] = fake.url()
+        if "job" in data:
+            row["Job"] = fake.job()
+        if "pyfloat" in data:
+            row["Decimal"] = fake.pyfloat()
+        if "pyint" in data:
+            row['Int'] = fake.pyint()
             
         new_data.append(row)
     
-    filename = 'static/hasil.csv'    
+    filename = 'static/fake_data_generate.csv'    
     df = pd.DataFrame(new_data)
     df.to_csv(filename, index=False)
         
