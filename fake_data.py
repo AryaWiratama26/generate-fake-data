@@ -20,6 +20,12 @@ def generate_data(data, long):
             row["Phone"] = fake.phone_number()
         if "company" in data:
             row["Company"] = fake.company()
+        if "country" in data:
+            row["Country"] = fake.country()
+        if "text" in data:
+            row["Text"] = fake.text()
+        if "url" in data:
+            row["URL"] = fake.url()
             
         new_data.append(row)
     
